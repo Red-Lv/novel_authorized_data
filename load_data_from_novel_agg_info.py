@@ -6,9 +6,11 @@
 # desc:
 
 import sys
+import time
 import MySQLdb
 
 from data_struct import *
+from utility import *
 
 
 class DataLoader(object):
@@ -88,7 +90,7 @@ class DataLoader(object):
         novel_basic_info.cp_id = novel_agg_info.site_id
         novel_basic_info.cp_name = novel_agg_info.site
         novel_basic_info.dir_url = novel_agg_info.dir_url
-        novel_basic_info.gid = novel_agg_info.gid
+        novel_basic_info.gid = novel_agg_info.rid
         novel_basic_info.book_name = novel_agg_info.book_name
         novel_basic_info.author_id = 0
         novel_basic_info.author = novel_agg_info.pen_name
@@ -117,7 +119,7 @@ class DataLoader(object):
         novel_basic_info.word_sum = 1000 * novel_basic_info.chapter_num
         novel_basic_info.price_word_sum = 1000 * novel_basic_info.public_chapter_num
         novel_basic_info.public_price_word_sum = 1000 * (novel_basic_info.public_chapter_num - novel_basic_info.free_chapter_num)
-        novel_basic_info.check_status = novel_basic_info.check_status
+        novel_basic_info.check_status = novel_agg_info.is_checked
 
         novel_basic_info.last_chapter_index = novel_agg_info.last_chapter_index
         novel_basic_info.last_chapter_id = novel_agg_info.last_chapter_id
