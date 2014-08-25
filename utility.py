@@ -12,8 +12,6 @@ import pdb, signal
 import MySQLdb
 import requests
 
-from DataFrame.novel.auth.url_validity_check import *
-
 dir_rid_info_table_num = 10
 
 dir_agg_chapter_info_table_num = 256
@@ -23,8 +21,6 @@ chapter_agg_info_table_num = 256
 chapter_agg_link_table_num = 256
 
 chapter_integrate_info_table_num = 256
-
-url_validity_check = UrlValidityCheck()
 
 site_auth_dict = {}
 
