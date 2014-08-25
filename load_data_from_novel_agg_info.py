@@ -119,12 +119,12 @@ class DataLoader(object):
         novel_basic_info.ios_public_status = 1
         novel_basic_info.ios_public_time = novel_basic_info.public_time
         novel_basic_info.roll_number = 14
-        novel_basic_info.chapter_num = novel_agg_info.chapter_count
-        novel_basic_info.public_chapter_num = novel_basic_info.chapter_num
-        novel_basic_info.free_chapter_num = int(novel_basic_info.chapter_num * 0.3)
-        novel_basic_info.word_sum = 1000 * novel_basic_info.chapter_num
-        novel_basic_info.price_word_sum = 1000 * novel_basic_info.public_chapter_num
-        novel_basic_info.public_price_word_sum = 1000 * (novel_basic_info.public_chapter_num - novel_basic_info.free_chapter_num)
+        novel_basic_info.chapter_number = novel_agg_info.chapter_count
+        novel_basic_info.public_chapter_number = novel_basic_info.chapter_number
+        novel_basic_info.free_chapter_number = int(novel_basic_info.chapter_number * 0.3)
+        novel_basic_info.word_sum = 1000 * novel_basic_info.chapter_number
+        novel_basic_info.price_word_sum = 1000 * novel_basic_info.public_chapter_number
+        novel_basic_info.public_price_word_sum = 1000 * (novel_basic_info.public_chapter_number - novel_basic_info.free_chapter_number)
         novel_basic_info.check_status = novel_agg_info.is_checked
 
         novel_basic_info.last_chapter_index = novel_agg_info.last_chapter_index
