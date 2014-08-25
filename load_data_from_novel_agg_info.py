@@ -28,12 +28,16 @@ class DataLoader(object):
         try:
             self.conn_agg = MySQLdb.connect(host='10.212.6.135', port=6217, user='novelclu2_w', passwd='70nLvbtMlrUV',
                                             db='novels')
+            self.conn_agg.set_character_set('GBK')
+            self.conn_agg.autocommit(True)
         except Exception as e:
             self.conn_agg = None
 
         try:
             self.conn_auth = MySQLdb.connect(host='10.58.94.14', port=8306, user='novel', passwd='wisenovel',
                                              db='novels')
+            self.conn_auth.set_character_set('GBK')
+            self.conn_auth.autocommit(True)
         except Exception as e:
             self.conn_auth = None
 
