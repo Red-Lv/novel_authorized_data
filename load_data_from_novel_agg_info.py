@@ -21,6 +21,8 @@ class DataLoader(object):
 
     def init(self):
 
+        self.init_db()
+
         return True
 
     def init_db(self):
