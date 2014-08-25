@@ -24,12 +24,14 @@ class DataLoader(object):
     def init_db(self):
 
         try:
-            self.conn_agg = MySQLdb.connect(host='', port=, user='', passwd='', db='')
+            self.conn_agg = MySQLdb.connect(host='10.212.6.135', port=6217, user='novelclu2_w', passwd='70nLvbtMlrUV',
+                                            db='novels')
         except Exception as e:
             self.conn_agg = None
 
         try:
-            self.conn_auth = MySQLdb.connect(host='', port=, user='', passwd='', db='')
+            self.conn_auth = MySQLdb.connect(host='10.58.94.14', port=8306, user='novel', passwd='wisenovel',
+                                             db='novels')
         except Exception as e:
             self.conn_auth = None
 
@@ -76,7 +78,7 @@ class DataLoader(object):
         """
 
         novel_basic_info = None
-        if novel_agg_info:
+        if not novel_agg_info:
             return novel_basic_info
 
         novel_basic_info = NovelBase()
@@ -168,7 +170,7 @@ class DataLoader(object):
             return False
 
         object_attr_dict = filter_object_attr_by_schema(novel_basic_info, fields_list)
-        insert_sql = 'INSERT IGNORE INTO novel_basic_info ({0}, create_time, update_time) ' \
+        insert_sql = 'INSERT IGNORE INTO novel_basic_info_offline ({0}, create_time, update_time) ' \
                      'VALUES({1}, unix_timestamp(), unix_timestamp())' \
                      ''.format(', '.join(object_attr_dict.keys()), ', '.join(['%s'] * (len(object_attr_dict))))
 
